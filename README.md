@@ -1,5 +1,4 @@
 # InternetOfCats
-EC544 project
 
 ### Introduction
 
