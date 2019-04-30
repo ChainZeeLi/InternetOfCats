@@ -1,5 +1,3 @@
-
-
 #pip install requests
 import requests, json
 from requests.auth import HTTPBasicAuth
