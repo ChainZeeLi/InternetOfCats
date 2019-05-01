@@ -21,7 +21,7 @@ i = 0
 
 #take photo when motion is detected
 
-servers = []
+servers = ['192.168.0.169']
 
 image_num = 0
 server_index=0
@@ -59,7 +59,7 @@ def take_photo():
         response = requests.get(servers[server_index]+'/files/'+best_pic, params = {})
         with open('best_cat_pic.jpg', 'wb') as f:
             response.raw.decode_content = True
-            shutil.copyfileobj(response.raw, f)   
+            shutil.copyfileobj(response.raw, f)
 
 
     media ='./best_cat_pic.jpg'
@@ -109,11 +109,11 @@ def take_photo():
 
 
 
-    num_of_processed_images+=1
-    image_num +=1
-    pervious_server_index +=1
-    if pervious_server_index>len(servers)-1:
-        pervious_server_index=0
+num_of_processed_images+=1
+image_num +=1
+pervious_server_index +=1
+if pervious_server_index>len(servers)-1:
+    pervious_server_index=0
 
 
 
@@ -122,7 +122,3 @@ while 1:
     if pir.motion_detected:
         take_photo()
         #pause()
-
-
-
-
