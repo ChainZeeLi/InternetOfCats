@@ -60,3 +60,9 @@ while 1:
     if pir.motion_detected:
         take_photo()
         #pause()
+
+
+
+
+
+        
