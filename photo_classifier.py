@@ -29,10 +29,10 @@ def take_photo():
     # image.show()
     urlClassify = 'https://app.nanonets.com/api/v2/ImageCategorization/LabelFile/'
     urlDetect = 'https://app.nanonets.com/api/v2/ObjectDetection/Model/bf2607e8-d85f-4278-93d3-2efa4038f59b/LabelFile/'
-    dataClassify = {'file': open('/home/pi/Desktop/new_bee.jpg', 'rb'), 'modelId': ('', '28343a90-1026-4fd4-835d-01fc684547$
+    dataClassify = {'file': open('/home/pi/Desktop/new_bee.jpg', 'rb'), 'modelId': ('', '28343a90-1026-4fd4-835d-01fc684547')}
     dataDetect = {'file': open('/home/pi/Desktop/new_bee.jpg', 'rb')}
-    responseDetect = requests.post(urlDetect, auth=requests.auth.HTTPBasicAuth('TwL75FKFCin_w4Lg4MFplluqsZ6SfESa', ''), fil$
-    responseClassify = requests.post(urlClassify, auth= requests.auth.HTTPBasicAuth('TwL75FKFCin_w4Lg4MFplluqsZ6SfESa', '')$
+    responseDetect = requests.post(urlDetect, auth=requests.auth.HTTPBasicAuth('TwL75FKFCin_w4Lg4MFplluqsZ6SfESa', ''))
+    responseClassify = requests.post(urlClassify, auth= requests.auth.HTTPBasicAuth('TwL75FKFCin_w4Lg4MFplluqsZ6SfESa', ''))
     pred_out = ast.literal_eval(responseClassify.text) # convert string to dict
     pred_out=pred_out['result'][0]['prediction']
     pred1 = pred_out[0]
@@ -42,7 +42,7 @@ def take_photo():
     if detected != []:
         print('A cat has been detected')
         media ='/home/pi/Desktop/new_bee.jpg'
-        captionText = 'Hi! this is '+ pred1['label']+ ' with probability ' + str(pred1['probability']) + ' or ' +pred2['lab$
+        captionText = 'Hi! this is '+ pred1['label']+ ' with probability ' + str(pred1['probability']) + ' or ' +pred2['label']
         ig.uploadPhoto(media, caption=captionText)
         print(type(ig.LastResponse))
         #response = ig.s.post(self.API_URL + "upload/photo/", data=m.to_string())

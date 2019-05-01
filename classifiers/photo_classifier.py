@@ -27,6 +27,10 @@ def take_photo():
     image = Image.open('/home/pi/Desktop/bee.jpg')
     image.save('/home/pi/Desktop/' + 'new_bee.jpg') #strip EXIF data because it interferes w/instagram API
     # image.show()
+
+
+
+#-----------------------------------------------  NEED TO CHANGE THESE, CALL MY SEVERS INSTEAD   -----------------------------------------------------------------------------#
     urlClassify = 'https://app.nanonets.com/api/v2/ImageCategorization/LabelFile/'
     urlDetect = 'https://app.nanonets.com/api/v2/ObjectDetection/Model/bf2607e8-d85f-4278-93d3-2efa4038f59b/LabelFile/'
     dataClassify = {'file': open('/home/pi/Desktop/new_bee.jpg', 'rb'), 'modelId': ('', '28343a90-1026-4fd4-835d-01fc684547$
@@ -39,6 +43,9 @@ def take_photo():
     pred2 = pred_out[1]
     detected = ast.literal_eval(responseDetect.text)
     detected = detected['result'][0]['prediction']
+#-----------------------------------------------------------------------------------------------------------------------------------#
+
+
     if detected != []:
         print('A cat has been detected')
         media ='/home/pi/Desktop/new_bee.jpg'
