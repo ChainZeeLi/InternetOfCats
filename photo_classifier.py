@@ -60,8 +60,7 @@ def take_photo():
         with open('best_cat_pic.jpg', 'wb') as f:
             response.raw.decode_content = True
             shutil.copyfileobj(response.raw, f)   
-
-
+            
     media ='./best_cat_pic.jpg'
     captionText = "meow!"
     ig.uploadPhoto(media, caption=captionText)
