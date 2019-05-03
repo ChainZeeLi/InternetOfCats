@@ -15,14 +15,13 @@ The cat image content generator will call a API to store the captured cat images
 * Instagram Account
 * Instagram API
 * ATLAS (Automatically Tuned Linear Algebra Software) Library
-* TensorFlow
+* NanoNets
 #### Hardware
 * Raspberry Pi with Raspbian Stretch OS (9.0+)
 * Raspberry Pi camera module
-* MicroSD card
+* MicroSD card, 16GB
 * wifi adapter
-* Motion Sensor, e.g. PARALLAX 555-28027 PIR Passive IR Sensor
-* Power cable
+* PIR Passive IR Sensor
 
 ![System structure][logo]
 
